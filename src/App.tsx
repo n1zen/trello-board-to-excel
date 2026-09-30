@@ -12,20 +12,39 @@ import {
 import Input from './components/Input';
 
 function App() {
+  const [apiKey, setApiKey] = useState("");
+  const [token, setToken] = useState("");
 
   return (
-    <Card className="max-w-sm m-auto mt-12">
+    <Card className="max-w-xl m-auto mt-12">
       <CardHeader className="text-center">
         <CardTitle>Trello Boards to Excel</CardTitle>
         <CardDescription>Work in progress</CardDescription>
       </CardHeader>
 
-      <CardContent className="flex flex-row justify-center items-center">
-        
+      <CardContent className="flex flex-col justify-center items-center gap-5">
+        {/** API KEY INPUT */}
+        <Input
+          label="API Key"
+          type="text"
+          placeholder="Place your Trello API Key here..."
+          value={apiKey}
+          onChange={(e) => setApiKey(e.target.value)}
+          helperText="We'll never share your API Key"
+        />  
+        {/** API TOKEN INPUT */}
+        <Input
+          label="Token"
+          type="text"
+          placeholder="Place your trello token here..."
+          value={token}
+          onChange={(e) => setToken(e.target.value)}
+          helperText="We'll never share your Token"
+        />
       </CardContent>
       
       <CardFooter>
-        <p className="text-xs">Made by <a href="louie-izen-torres-portfolio.vercel.app" target="_blank">n1zen</a> 2026</p>
+        {/** Submit button for API Key and Token */}
       </CardFooter>
     </Card>
   );
