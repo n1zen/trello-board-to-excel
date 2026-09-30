@@ -10,6 +10,7 @@ import {
 } from './components/Card';
 
 import Input from './components/Input';
+import Button from './components/Button';
 
 function App() {
   const [apiKey, setApiKey] = useState("");
@@ -45,6 +46,7 @@ function App() {
       
       <CardFooter>
         {/** Submit button for API Key and Token */}
+        <Button>Submit</Button>
       </CardFooter>
     </Card>
   );
