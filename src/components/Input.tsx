@@ -1,17 +1,16 @@
 import { forwardRef, useId } from "react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
-const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+import { cn } from "../lib/utils";
 
 export type InputProps = React.ComponentPropsWithoutRef<"input"> & {
     label?: string;
+    labelClassName?: string;
     error?: string;
     helperText?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ label, error, helperText, className, id, disabled, ...rest }, ref) => {
+    ({ label, labelClassName, error, helperText, className, id, disabled, ...rest }, ref) => {
         const generatedId = useId();
         const inputId = id ?? generatedId;
         const messageId = `${inputId}-message`;
@@ -22,7 +21,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                 {label && (
                     <label
                         htmlFor={inputId}
-                        className="text-sm font-medium text-gray-700"
+                        className={cn(
+                            "text-sm font-medium text-gray-700",
+                            labelClassName
+                        )}
                     >
                         {label}
                     </label>

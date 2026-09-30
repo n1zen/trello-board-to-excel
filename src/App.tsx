@@ -1,24 +1,34 @@
 import { useState } from 'react';
 
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter
+} from './components/Card';
+
 import Input from './components/Input';
 
 function App() {
-  const [email, setEmail] = useState("");
 
   return (
-    <div>
-      <p>{email}</p>
-      <Input
-        label="Email"
-        type="text"
-        placeholder="email@example.com"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        error={email && !email.includes("@") ? "Invalid email" : undefined}
-        helperText="We'll never share your email"
-      />
-    </div>
-  )
+    <Card className="max-w-sm m-auto mt-12">
+      <CardHeader className="text-center">
+        <CardTitle>Trello Boards to Excel</CardTitle>
+        <CardDescription>Work in progress</CardDescription>
+      </CardHeader>
+
+      <CardContent className="flex flex-row justify-center items-center">
+        
+      </CardContent>
+      
+      <CardFooter>
+        <p className="text-xs">Made by <a href="louie-izen-torres-portfolio.vercel.app" target="_blank">n1zen</a> 2026</p>
+      </CardFooter>
+    </Card>
+  );
 }
 
 export default App
